@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
 import RUBRIC from './rubric-data.js';
@@ -43,51 +43,52 @@ class Rubric extends Component {
   }
 
   render() {
-    return <form onSubmit={this.save}>
-      <div>
+    return <Fragment>
+      <form onSubmit={this.save}>
         <div>
-          Course:
-          <input type="text" name="courseTitle" onChange={this.handleChange}
-            value={this.state.courseTitle}
-          />
+          <div>
+            Course:
+            <input type="text" name="courseTitle" onChange={this.handleChange}
+              value={this.state.courseTitle}
+            />
 
-          Scheduled Date
-          <input type="date" name="scheduledDate" onChange={this.handleChange}
-            value={this.state.scheduledDate}
-          />
+            Scheduled Date
+            <input type="date" name="scheduledDate" onChange={this.handleChange}
+              value={this.state.scheduledDate}
+            />
+          </div>
+          <div>
+            Student Full Name:
+            <input type="text" name="studentName" onChange={this.handleChange}
+              tabIndex="1"
+              value={this.state.studentName}
+            />
+
+            Interviewer Name:
+            <input type="text" name="interviewName" onChange={this.handleChange}
+              tabIndex="1"
+              value={this.state.interviewerName}
+            />
+          </div>
         </div>
-        <div>
-          Student Full Name:
-          <input type="text" name="studentName" onChange={this.handleChange}
-            tabIndex="1"
-            value={this.state.studentName}
-          />
 
-          Interviewer Name:
-          <input type="text" name="interviewName" onChange={this.handleChange}
-            tabIndex="1"
-            value={this.state.interviewerName}
-          />
+        {RUBRIC.map((category, i) => {
+          return <Category key={i} category={category} />
+        })}
+
+        <div className="total-points">
+          Total Points: {this.score()}/{this.total()} (giving up is an automatic fail)
         </div>
-      </div>
 
-      {RUBRIC.map((category, i) => {
-        return <Category key={i} category={category} />
-      })}
-
-      <div className="total-points">
-        Total Points: {this.score()}/{this.total()} (giving up is an automatic fail)
-      </div>
-
-      <div className="overall-notes">
-        <div>Notes:</div>
-        <textarea tabIndex="3"></textarea>
-      </div>
-
-      <div>
-        <button type="submit">save</button>
-      </div>
-    </form>
+        <div className="overall-notes">
+          <div>Notes:</div>
+          <textarea tabIndex="3"></textarea>
+        </div>
+      </form>
+      <p className="source-link">
+        <a href="https://github.com/codefellows/whiteboard-rubric-tool">https://github.com/codefellows/whiteboard-rubric-tool</a>
+      </p>
+    </Fragment>
   }
 }
 
