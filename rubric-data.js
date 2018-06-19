@@ -28,11 +28,12 @@ export default [
   {
     name: 'Communicated effectively throughout',
     items: [
-      { max: 2, name: 'Verbalized their thought process'},
+      { max: 6, name: 'Verbalized their thought process'},
       { max: 2, name: 'Used correct terminology'},
-      { max: 2, name: 'Was not overconfident (not listening to suggestions)'},
-      { max: 4, name: 'Was not under-confident (unsure of known algorithm)'},
-      { max: 4, name: 'Whiteboard was readable (penmanship and spacing)'},
+      { max: 1, name: 'Used the time available effectively'},
+      { max: 1, name: 'Was not overconfident (not listening to suggestions)'},
+      { max: 1, name: 'Was not under-confident (unsure of known algorithm)'},
+      { max: 1, name: 'Whiteboard was readable (penmanship and spacing)'},
     ]
   },
 ]

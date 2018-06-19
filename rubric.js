@@ -4,14 +4,28 @@ import ReactDOM from 'react-dom';
 import RUBRIC from './rubric-data.js';
 import Category from './category';
 
+function formatDate(date) {
+  let month = date.getMonth() + 1;
+  if (month < 10) {
+    month = '0' + month;
+  }
+  return date.getFullYear() + '-' + month + '-' + date.getDate();
+}
+
 class Rubric extends Component {
   state = {
     courseTitle: "401n6 javascript",
-    studentName: "",
+    studentName: "Muncan Darsh",
     interviewerName: "Allie",
-    scheduledDate: new Date(),
+    scheduledDate: formatDate(new Date()),
     startTime: "5:30",
     endTime: "6:30",
+  }
+
+  handleChange = (ev) => {
+    const property = ev.target.name;
+    let value = ev.target.value;
+    this.setState({[property]: value});
   }
 
   total = (obj) => {
@@ -22,16 +36,37 @@ class Rubric extends Component {
     return <form>
       <div>
         <div>
-          Course: <input type="text" value={this.state.courseTitle}></input>
+          Course:
+          <input type="text" name="courseTitle" onChange={this.handleChange}
+            value={this.state.courseTitle}
+          />
         </div>
         <div>
-          Student Full Name: <input type="text" value={this.state.studentName}></input>
-          Interviewer Name: <input type="text" value={this.state.interviewerName}></input>
+          Student Full Name:
+          <input type="text" name="studentName" onChange={this.handleChange}
+            value={this.state.studentName}
+          />
+
+          Interviewer Name:
+          <input type="text" name="interviewName" onChange={this.handleChange}
+            value={this.state.interviewerName}
+          />
         </div>
         <div>
-          Scheduled Date: <input type="date" value={this.state.scheduledDate}></input>
-          Start Time:<input type="text" value={this.state.startTime}></input>
-          End Time: <input type="text" value={this.state.endTime}></input>
+          Scheduled Date {this.state.scheduledDate}:
+          <input type="date" name="scheduledDate" onChange={this.handleChange}
+            value={this.state.scheduledDate}
+          />
+
+          Start Time:
+          <input type="text" name="startTime" onChange={this.handleChange}
+            value={this.state.startTime}
+          />
+
+          End Time:
+          <input type="text" name="endTime" onChange={this.handleChange}
+            value={this.state.endTime}
+          />
         </div>
       </div>
 
@@ -45,7 +80,7 @@ class Rubric extends Component {
 
       <div className="overall-notes">
         <div>Notes:</div>
-        <textarea></textarea>
+        <textarea tabIndex="2"></textarea>
       </div>
 
       <div>

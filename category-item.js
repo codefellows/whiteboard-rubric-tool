@@ -19,13 +19,14 @@ export default class CategoryItem extends Component {
     score = clamp(0, score, this.props.item.max);
 
     this.setState({score});
-    this.props.updateScore(value);
+    this.props.updateScore(score);
   }
 
   render() {
     return <div>
       <label className="category-item">
         <input type="integer" min="0" max={this.props.item.max}
+              tabIndex="3"
               onChange={this.onChange}
               size="1" value={this.state.score} />
         {"/"} {this.props.item.max}

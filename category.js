@@ -40,8 +40,8 @@ export default class Category extends Component {
         </div>
         <div>
           {this.props.category.items.map((item, i) => {
-            return <Fragment>
-              <CategoryItem key={i} item={item} 
+            return <Fragment key={i}>
+              <CategoryItem item={item} 
                 updateScore={(value) => this.updateScore(i, value) } />
             </Fragment>
           })}
@@ -49,7 +49,7 @@ export default class Category extends Component {
       </div>
       <div className="half">
           <div>Notes:</div>
-          <textarea></textarea>
+          <textarea tabIndex="1"></textarea>
       </div>
       <p></p>
     </div>
