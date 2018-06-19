@@ -16,7 +16,9 @@ export default class Category extends Component {
   updateScore = (index, value) => {
     const scores = [...this.state.scores];
     scores[index] = value;
-    this.setState({scores});
+    this.setState({scores}, () => {
+      this.props.updateTotal(this.score());
+    });
   }
 
   score = () => {

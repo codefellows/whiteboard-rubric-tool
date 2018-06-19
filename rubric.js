@@ -19,9 +19,17 @@ class Rubric extends Component {
     interviewerName: "",
     scheduledDate: formatDate(new Date()),
 
-    scores: [],
+    scores: new Array(RUBRIC.length),
     sectionNotes: [],
     overallNotes: "",
+  }
+
+  componentDidMount() {
+    const scores = [...scores];
+    RUBRIC.forEach((category, index) => {
+      scores[index] = category.items.reduce((a, b) => a + b.max, 0);
+    });
+    this.setState({scores});
   }
 
   handleChange = (ev) => {
@@ -30,16 +38,30 @@ class Rubric extends Component {
     this.setState({[property]: value});
   }
 
-  score = (obj) => {
-    return 40;
+  updateTotal = (categoryIndex, score) => {
+    let scores = [...this.state.scores];
+    scores[categoryIndex] = score;
+    this.setState({scores});
   }
-  total = (obj) => {
-    return 40;
+
+  score = () => {
+    return this.state.scores.reduce((total, score) => {
+      return total + score;
+    }, 0);
+  }
+
+  pointsPossible = (obj) => {
+    let pointsPossible = 0;
+    RUBRIC.forEach(category => {
+      category.items.forEach(item => {
+        pointsPossible += item.max;
+      });
+    });
+    return pointsPossible;
   }
 
   save = (ev) => {
     ev.preventDefault();
-    console.log(this.state);
   }
 
   render() {
@@ -73,11 +95,13 @@ class Rubric extends Component {
         </div>
 
         {RUBRIC.map((category, i) => {
-          return <Category key={i} category={category} />
+          return <Category key={i} category={category} 
+            updateTotal={categoryScore => this.updateTotal(i, categoryScore)}
+          />
         })}
 
         <div className="total-points">
-          Total Points: {this.score()}/{this.total()} (giving up is an automatic fail)
+          Total Points: {this.score()}/{this.pointsPossible()} (giving up is an automatic fail)
         </div>
 
         <div className="overall-notes">
