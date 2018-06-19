@@ -10,5 +10,24 @@
     "react": ">= 0.14.0 < 17.0.0-0",
     "react-dom": "^16.4.1",
     "styled-components": "^3.3.2"
-  }
+  },
+  "name": "codefellows-whiteboard-rubric-tool",
+  "description": "`parcel index.html`",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codefellows/whiteboard-rubric-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefellows/whiteboard-rubric-tool/issues"
+  },
+  "homepage": "https://github.com/codefellows/whiteboard-rubric-tool#readme"
 }
