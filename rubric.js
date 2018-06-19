@@ -20,6 +20,10 @@ class Rubric extends Component {
     scheduledDate: formatDate(new Date()),
     startTime: "5:30",
     endTime: "6:30",
+
+    scores: [],
+    sectionNotes: [],
+    overallNotes: "",
   }
 
   handleChange = (ev) => {
@@ -28,12 +32,20 @@ class Rubric extends Component {
     this.setState({[property]: value});
   }
 
+  score = (obj) => {
+    return 40;
+  }
   total = (obj) => {
     return 40;
   }
 
+  save = (ev) => {
+    ev.preventDefault();
+    console.log(this.state);
+  }
+
   render() {
-    return <form>
+    return <form onSubmit={this.save}>
       <div>
         <div>
           Course:
@@ -75,7 +87,7 @@ class Rubric extends Component {
       })}
 
       <div className="total-points">
-        Total Points: {this.total()}/40 (giving up is an automatic fail)
+        Total Points: {this.score()}/{this.total()} (giving up is an automatic fail)
       </div>
 
       <div className="overall-notes">
