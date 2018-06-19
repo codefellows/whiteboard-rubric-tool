@@ -45,6 +45,9 @@ class Rubric extends Component {
         <div>Notes:</div>
         <textarea></textarea>
       </div>
+      <div>
+        <button type="submit">save</button>
+      </div>
     </form>
   }
 }

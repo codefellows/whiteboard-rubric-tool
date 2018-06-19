@@ -2,7 +2,7 @@ body {
   background-color: #eee;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 700px) {
   .half {
     width: 49%;
     display: inline-block;
@@ -16,4 +16,9 @@ body {
 textarea {
   width: 90%;
   height: 40px;
+}
+
+button {
+  width: 90%;
+  font-size: large;
 }
