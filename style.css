@@ -2,6 +2,10 @@ body {
   background-color: #eee;
 }
 
+.overall-notes {
+  margin-top: 1em;
+}
+
 @media (min-width: 700px) {
   .half {
     width: 49%;

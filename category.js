@@ -9,9 +9,25 @@ const HalfDiv = styled.div`
 import CategoryItem from './category-item';
 
 export default class Category extends Component {
+  state = {
+    scores: this.props.category.items.map((item) => item.max)
+  }
+
+  updateScore = (index, value) => {
+    const scores = [...this.state.scores];
+    scores[index] = value;
+    this.setState({scores});
+  }
+
+  score = () => {
+    return this.state.scores.reduce((total, score) => {
+      return total + score;
+    }, 0);
+  }
+
   total = () => {
     return this.props.category.items.reduce((total, item) => {
-      return item.max;
+      return total + item.max;
     }, 0);
   }
 
@@ -19,13 +35,14 @@ export default class Category extends Component {
     return <div className="category">
       <div className="half">
         <div>
-          {this.props.category.name}
-          {this.props.category.score} {'/'} {this.total()}
+          {this.score()} {'/'} {this.total()}
+          {" "}{this.props.category.name}
         </div>
         <div>
           {this.props.category.items.map((item, i) => {
             return <Fragment>
-              <CategoryItem key={i} item={item} />
+              <CategoryItem key={i} item={item} 
+                updateScore={(value) => this.updateScore(i, value) } />
             </Fragment>
           })}
         </div>

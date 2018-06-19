@@ -7,7 +7,7 @@ import Category from './category';
 class Rubric extends Component {
   state = {
     courseTitle: "401n6 javascript",
-    studentName: "Ix Procopious",
+    studentName: "",
     interviewerName: "Allie",
     scheduledDate: new Date(),
     startTime: "5:30",
@@ -26,7 +26,7 @@ class Rubric extends Component {
         </div>
         <div>
           Student Full Name: <input type="text" value={this.state.studentName}></input>
-          Interviewer Name: <input type="text" value={this.state.inerviewerName}></input>
+          Interviewer Name: <input type="text" value={this.state.interviewerName}></input>
         </div>
         <div>
           Scheduled Date: <input type="date" value={this.state.scheduledDate}></input>
@@ -39,12 +39,15 @@ class Rubric extends Component {
         return <Category key={i} category={category} />
       })}
 
-      Total Points: {this.total()}/40 (giving up in an automatic fail)
+      <div className="total-points">
+        Total Points: {this.total()}/40 (giving up is an automatic fail)
+      </div>
 
-      <div>
+      <div className="overall-notes">
         <div>Notes:</div>
         <textarea></textarea>
       </div>
+
       <div>
         <button type="submit">save</button>
       </div>
