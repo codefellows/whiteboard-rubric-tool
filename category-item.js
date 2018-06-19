@@ -28,7 +28,7 @@ export default class CategoryItem extends Component {
     return <div>
       <label className="category-item">
         <input type="number" min="0" max={this.props.item.max}
-              tabIndex="3"
+              tabIndex="4"
               onChange={this.onChange}
               size="2" value={this.state.score}></input>
         {"/"} {this.props.item.max}

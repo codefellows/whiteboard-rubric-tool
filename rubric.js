@@ -15,11 +15,9 @@ function formatDate(date) {
 class Rubric extends Component {
   state = {
     courseTitle: "401n6 javascript",
-    studentName: "Muncan Darsh",
-    interviewerName: "Allie",
+    studentName: "",
+    interviewerName: "",
     scheduledDate: formatDate(new Date()),
-    startTime: "5:30",
-    endTime: "6:30",
 
     scores: [],
     sectionNotes: [],
@@ -52,32 +50,23 @@ class Rubric extends Component {
           <input type="text" name="courseTitle" onChange={this.handleChange}
             value={this.state.courseTitle}
           />
+
+          Scheduled Date
+          <input type="date" name="scheduledDate" onChange={this.handleChange}
+            value={this.state.scheduledDate}
+          />
         </div>
         <div>
           Student Full Name:
           <input type="text" name="studentName" onChange={this.handleChange}
+            tabIndex="1"
             value={this.state.studentName}
           />
 
           Interviewer Name:
           <input type="text" name="interviewName" onChange={this.handleChange}
+            tabIndex="1"
             value={this.state.interviewerName}
-          />
-        </div>
-        <div>
-          Scheduled Date {this.state.scheduledDate}:
-          <input type="date" name="scheduledDate" onChange={this.handleChange}
-            value={this.state.scheduledDate}
-          />
-
-          Start Time:
-          <input type="text" name="startTime" onChange={this.handleChange}
-            value={this.state.startTime}
-          />
-
-          End Time:
-          <input type="text" name="endTime" onChange={this.handleChange}
-            value={this.state.endTime}
           />
         </div>
       </div>
@@ -92,7 +81,7 @@ class Rubric extends Component {
 
       <div className="overall-notes">
         <div>Notes:</div>
-        <textarea tabIndex="2"></textarea>
+        <textarea tabIndex="3"></textarea>
       </div>
 
       <div>

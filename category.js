@@ -49,7 +49,7 @@ export default class Category extends Component {
       </div>
       <div className="half">
           <div>Notes:</div>
-          <textarea tabIndex="1"></textarea>
+          <textarea tabIndex="2"></textarea>
       </div>
       <p></p>
     </div>
