@@ -19,16 +19,18 @@ export default class CategoryItem extends Component {
     score = clamp(0, score, this.props.item.max);
 
     this.setState({score});
-    this.props.updateScore(score);
+    if (!isNaN(score)) {
+      this.props.updateScore(score);
+    }
   }
 
   render() {
     return <div>
       <label className="category-item">
-        <input type="integer" min="0" max={this.props.item.max}
+        <input type="number" min="0" max={this.props.item.max}
               tabIndex="3"
               onChange={this.onChange}
-              size="1" value={this.state.score} />
+              size="2" value={this.state.score}></input>
         {"/"} {this.props.item.max}
         {" "}{this.props.item.name}
       </label>

@@ -20,13 +20,13 @@ export default class Category extends Component {
   }
 
   score = () => {
-    return this.state.scores.reduce((total, score) => {
-      return total + score;
+    return this.state.scores.reduce((total, score, index) => {
+      return total + this.state.scores[index];
     }, 0);
   }
 
   total = () => {
-    return this.props.category.items.reduce((total, item) => {
+    return this.props.category.items.reduce((total, item, index) => {
       return total + item.max;
     }, 0);
   }
