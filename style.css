@@ -2,12 +2,18 @@ body {
   background-color: #eee;
 }
 
-.half {
-  width: 49%;
-  display: inline-block;
+@media (min-width: 640px) {
+  .half {
+    width: 49%;
+    display: inline-block;
+  }
+
+  textarea {
+    width: 300px;
+  }
 }
 
 textarea {
-  width: 300px;
+  width: 90%;
   height: 40px;
 }
