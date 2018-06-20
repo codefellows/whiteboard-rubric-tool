@@ -87,7 +87,7 @@ class Rubric extends Component {
             />
 
             Interviewer Name:
-            <input type="text" name="interviewName" onChange={this.handleChange}
+            <input type="text" name="interviewerName" onChange={this.handleChange}
               tabIndex="1"
               value={this.state.interviewerName}
             />
