@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import RUBRIC from './rubric-data.js';
 import Category from './category';
+import CourseSchedules from './course-schedules';
 
 function formatDate(date) {
   let month = date.getMonth() + 1;
@@ -116,6 +117,7 @@ class Rubric extends Component {
       <p className="source-link">
         <a href="https://github.com/codefellows/whiteboard-rubric-tool">https://github.com/codefellows/whiteboard-rubric-tool</a>
       </p>
+      <CourseSchedules />
     </Fragment>
   }
 }
