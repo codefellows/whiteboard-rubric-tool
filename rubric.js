@@ -114,10 +114,12 @@ class Rubric extends Component {
         This tool is not hooked up to a database. Please choose to print the page then save
         it as a PDF.
       </p>
+
+      <CourseSchedules />
+
       <p className="source-link">
         <a href="https://github.com/codefellows/whiteboard-rubric-tool">https://github.com/codefellows/whiteboard-rubric-tool</a>
       </p>
-      <CourseSchedules />
     </Fragment>
   }
 }
